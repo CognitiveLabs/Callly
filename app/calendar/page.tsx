@@ -140,14 +140,8 @@ export default function Calendar() {
       <nav className="flex justify-between mb-12 border-b border-violet-100 p-4">
         <h1 className="font-bold text-2xl text-gray-700">Calendar</h1>
       </nav>
-      <div className="flex">
-        <div style={{ flex: 1, textAlign: 'right' }}>
-          <MorningForm />
-        </div>
-        <div style={{ flex: 1, textAlign: 'left' }}>
-          <EnergyForm />
-        </div>
-      </div>
+      <MorningForm />
+      <EnergyForm />
 
       <main className="flex min-h-screen flex-col items-center justify-between pl-24">
         <div className="grid grid-cols-10">
