@@ -8,6 +8,7 @@ import { Session, User } from '@supabase/supabase-js';
 import cn from 'classnames';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
+import 'styles/main.css';
 
 type Subscription = Database['public']['Tables']['subscriptions']['Row'];
 type Product = Database['public']['Tables']['products']['Row'];
@@ -77,17 +78,8 @@ export default function Pricing({
       <section className="bg-black">
         <div className="max-w-6xl px-4 py-8 mx-auto sm:py-24 sm:px-6 lg:px-8">
           <div className="sm:flex sm:flex-col sm:align-center"></div>
-          <p className="text-4xl font-extrabold text-white sm:text-center sm:text-6xl">
-            No subscription pricing plans found. Create them in your{' '}
-            <a
-              className="text-pink-500 underline"
-              href="https://dashboard.stripe.com/products"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              Stripe Dashboard
-            </a>
-            .
+          <p className="text-4xl signika-title font-extrabold text-white sm:text-center sm:text-6xl">
+            the Cognitive Calendar
           </p>
         </div>
         <LogoCloud />
@@ -99,12 +91,13 @@ export default function Pricing({
       <section className="bg-black">
         <div className="max-w-6xl px-4 py-8 mx-auto sm:py-24 sm:px-6 lg:px-8">
           <div className="sm:flex sm:flex-col sm:align-center">
-            <h1 className="text-4xl font-extrabold text-white sm:text-center sm:text-6xl">
-              Pricing Plans
+            <h1 className="text-4xl signika-title font-extrabold text-white sm:text-center sm:text-6xl">
+              Cognitive Calendar Pricing Plans
             </h1>
             <p className="max-w-2xl m-auto mt-5 text-xl text-zinc-200 sm:text-center sm:text-2xl">
-              Start building for free, then add a site plan to go live. Account
-              plans unlock additional features.
+              There are tiers to the Cognitive Calendar pricing plans, though
+              they will be further developed as we continue to build out the
+              app.
             </p>
             <div className="relative flex self-center mt-12 border rounded-lg bg-zinc-900 border-zinc-800">
               <div className="border border-pink-500 border-opacity-50 divide-y rounded-lg shadow-sm bg-zinc-900 divide-zinc-600">
@@ -166,12 +159,12 @@ export default function Pricing({
     <section className="bg-black">
       <div className="max-w-6xl px-4 py-8 mx-auto sm:py-24 sm:px-6 lg:px-8">
         <div className="sm:flex sm:flex-col sm:align-center">
-          <h1 className="text-4xl font-extrabold text-white sm:text-center sm:text-6xl">
-            Pricing Plans
+          <h1 className="text-3xl signika-title font-extrabold text-white sm:text-center sm:text-6xl">
+            Cognitive Calendar Pricing Plans
           </h1>
           <p className="max-w-2xl m-auto mt-5 text-xl text-zinc-200 sm:text-center sm:text-2xl">
-            Start building for free, then add a site plan to go live. Account
-            plans unlock additional features.
+            There are tiers to the Cognitive Calendar pricing plans, though they
+            will be further developed as we continue to build out the app.
           </p>
           <div className="relative self-center mt-6 bg-zinc-900 rounded-lg p-0.5 flex sm:mt-8 border border-zinc-800">
             {intervals.includes('month') && (
@@ -263,7 +256,7 @@ function LogoCloud() {
   return (
     <div>
       <p className="mt-24 text-xs uppercase text-zinc-400 text-center font-bold tracking-[0.3em]">
-        Brought to you by
+        The Cognitive Calendar is being built with
       </p>
       <div className="flex flex-col items-center my-12 space-y-4 sm:mt-8 sm:space-y-0 md:mx-auto md:max-w-2xl sm:grid sm:gap-6 sm:grid-cols-5">
         <div className="flex items-center justify-start">

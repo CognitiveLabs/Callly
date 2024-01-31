@@ -22,10 +22,10 @@ html {
 html,
 body {
   font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', sans-serif;
+    'Helvetica', sans-serif, 'Signika', sans-serif;
   text-rendering: optimizeLegibility;
   -moz-osx-font-smoothing: grayscale;
-  @apply text-white bg-zinc-800 antialiased;
+  @apply bg-zinc-800 text-white antialiased;
 }
 
 body {
@@ -49,4 +49,111 @@ a {
 
 .height-screen-helper {
   height: calc(100vh - 80px);
+}
+
+.fc-header-toolbar {
+  display: inline-block;
+  padding: 4px 4px;
+  .child-element {
+    margin-right: 8px; /* Apply space between child elements */
+  }
+}
+
+.fc-day {
+  margin: 8px; /* Apply margin to the element */
+}
+
+.fc-scrollgrid-sync-table {
+  width: 100%; /* Apply full width */
+}
+
+.fc-view {
+  height: 100%; /* Apply full height */
+  width: 100%; /* Apply full width */
+  height: 75%; /* Apply height for large screens */
+  height: 66.67%; /* Apply height for extra-large screens */
+}
+
+.list-item {
+  height: 120px; /* Default height for desktop */
+}
+
+@media (max-width: 767px) {
+  /* Adjust the max-width value based on your mobile breakpoint */
+  .list-item {
+    height: 250px; /* Height for mobile */
+  }
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Signika:wght@400;700&display=swap');
+
+@font-face {
+  font-family: 'Signika';
+  src: url('./fonts/static/Signika-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Signika';
+  src: url('./fonts/static/Signika-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+.signika-title {
+  font-family: 'Signika', sans-serif;
+  color: #38b6ff;
+}
+
+.list-item {
+  margin-bottom: 8px; /* Add spacing between list items */
+}
+
+.column {
+  margin: 0 10px;
+  flex: 0 0 auto; /* Ensures columns shrink-to-fit on smaller screens */
+  max-width: 300px; /* Adjust as needed */
+}
+
+.blue-column {
+  margin: 0 10px;
+  flex: 0 0 auto; /* Same as above */
+  max-width: 200px; /* Adjust as needed */
+}
+
+@media (max-width: 760px) {
+  /* Override flex properties for larger screens if needed */
+  .column {
+    max-width: 30%; /* Example: 3 equal-width columns on larger screens */
+    font-size: 0.9rem;
+  }
+
+  .blue-column {
+    max-width: 22%; /* Adjust as needed */
+    font-size: 0.7rem;
+    text-align: left;
+  }
+  ul li {
+    font-size: 0.7rem;
+  }
+}
+
+.draggable {
+  background-color: #38b6ff;
+  cursor: grab;
+}
+
+.draggabletext {
+  color: #38b6ff;
+}
+
+.event-container {
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.event-container > div {
+  flex: 1 1 0;
+  margin: 1 0px;
 }
