@@ -25,36 +25,41 @@ export default function Columns() {
           <h3 className="text-white text-center text-lg font-bold mb-2 h-20">
             Definitions
           </h3>
-          <ul className=" pl-3 text-white text-lg">
+          <ul className="pl-3 text-white text-lg">
             <li className="list-item">
-              More than one piece may fit into the puzzle, but not all bring the
-              same value.
+              <strong>Break down</strong> complex information, find patterns,
+              and draw <strong>logical conclusions</strong>.
             </li>
             <li className="list-item">
-              Viewing the puzzles from different angles instead of from above
-              the coffee table.
+              <strong>Process and interpret</strong> information,{' '}
+              <strong>focusing on details</strong> and{' '}
+              <strong>recognizing patterns</strong>.
             </li>
             <li className="list-item">
-              Generating ideas and solutions in an unstructured and free-flowing
-              manner.
+              <strong>Generate ideas and solutions</strong> in an unstructured,
+              free-flowing manner.
             </li>
             <li className="list-item">
-              Creating concepts and forming innovative connections between
-              ideas.
+              <strong>Create concepts</strong> and form{' '}
+              <strong>innovative connections</strong> between ideas.
             </li>
             <li className="list-item">
-              Using your resources to the best of their ability, even if they
-              aren't designed for that purpose.
+              Use your resources to the <strong>best of their ability</strong>,
+              even if they weren't designed for that purpose.
             </li>
             <li className="list-item">
-              Organizing and managing tasks, resources, and people efficiently.
+              <strong>
+                Efficiently organize and manage tasks, resources, and people
+              </strong>
+              .
             </li>
             <li className="list-item">
-              Applying specialized knowledge and skills to solve practical
-              problems.
+              Apply <strong>specialized knowledge and skills</strong> to solve{' '}
+              <strong>practical problems</strong>.
             </li>
             <li className="list-item">
-              Working cooperatively with others to achieve shared objectives.
+              <strong>Work cooperatively with others</strong> to achieve{' '}
+              <strong>shared objectives</strong>.
             </li>
           </ul>
         </div>
@@ -67,36 +72,36 @@ export default function Columns() {
           </h3>
           <ul className="pl-3 text-white text-lg">
             <li className="list-item">
-              Some people complete a puzzle best by starting with the edges,
-              others by the colors, and others just start.
+              Puzzles, data analysis, code review for{' '}
+              <strong>sharp mornings (peak focus)</strong>.
             </li>
             <li className="list-item">
-              The kids' new clothing as a chore, but it could be viewed as a
-              chance to help them define their style.
+              Proofreading, image editing, design in{' '}
+              <strong>high-acuity afternoons</strong>.
             </li>
             <li className="list-item">
-              Approaching a problem by generating as many ideas as possible
-              without worrying about structure or feasibility.
+              Brainstorming, writing sessions during{' '}
+              <strong>relaxed moments (free thinking)</strong>.
             </li>
             <li className="list-item">
-              Making connections between seemingly unrelated concepts to create
-              innovative solutions.
+              Quiet, distraction-free periods for{' '}
+              <strong>strategic planning & reports</strong>.
             </li>
             <li className="list-item">
-              Developing a step-by-step plan with milestones and deadlines to
-              achieve a long-term objective.
+              Long-term goals, budgeting in{' '}
+              <strong>clear mornings (future focus)</strong>.
             </li>
             <li className="list-item">
-              Efficiently organizing tasks, resources, and team members to
-              achieve project goals.
+              Emails, filing, data entry for{' '}
+              <strong>lower energy, focused times</strong>.
             </li>
             <li className="list-item">
-              Applying technical expertise to solve practical problems and
-              challenges.
+              Coding, troubleshooting during{' '}
+              <strong>peak energy & focus periods</strong>.
             </li>
             <li className="list-item">
-              Collaborating with team members, leveraging each other's
-              strengths, to achieve common goals.
+              Meetings, projects when{' '}
+              <strong>energy & communication are high</strong>.
             </li>
           </ul>
         </div>
