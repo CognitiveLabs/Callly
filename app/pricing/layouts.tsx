@@ -32,7 +32,7 @@ interface Props {
 
 type BillingInterval = 'lifetime' | 'year' | 'month';
 
-export default function Pricing({
+export default async function Pricing({
   session,
   user,
   products,
@@ -82,7 +82,7 @@ export default function Pricing({
             My Calendy
           </p>
           <p className="text-4xl signika-title font-extrabold sm:text-center sm:text-6xl">
-            the Cognitive Calendar
+            pricing plans
           </p>
           <p className="max-w-2xl m-auto mt-5 text-xl text-zinc-200 sm:text-center sm:text-2xl">
             There will be tiers to the My Calendy pricing plans, though they
