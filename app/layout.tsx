@@ -7,7 +7,7 @@ import 'styles/main.css';
 const meta = {
   title: 'My Calendy',
   description: 'Plan your day, dont let it plan you.',
-  cardImage: '/og.png',
+  cardImage: '/logo.png',
   robots: 'follow, index',
   favicon: '/favicon.ico',
   url: 'https://MyCalendy.vercel.app',
