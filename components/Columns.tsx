@@ -4,10 +4,10 @@ export default function Columns() {
       {/* Column 1: Cognitive Functions */}
       <div className=" blue-column">
         <div className="bg-blue-500 rounded-md rounded-bl-md p-4 mb-4">
-          <h3 className="text-white text-left text-lg font-bold mb-2 h-20 mr-2">
+          <h3 className="text-white text-left text-lg font-bold mb-2 h-20 mr-3">
             Cognitive Abilities
           </h3>
-          <ul className="text-left text-white text-lg mr-4">
+          <ul className="text-left text-white text-lg mr-5">
             <li className="list-item">Analytical</li>
             <li className="list-item">Perceptual</li>
             <li className="list-item">Creative</li>
