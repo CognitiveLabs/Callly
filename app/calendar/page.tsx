@@ -1,7 +1,7 @@
 'use client';
 
-import EnergyForm from '../sliders/EnergyFinal';
-import MorningForm from '../sliders/MorningFinal';
+import EnergyForm from '@/sliders/EnergyFinal';
+import MorningForm from '@/sliders/MorningFinal';
 import { EventSourceInput } from '@fullcalendar/core/index.js';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin, {
