@@ -25,7 +25,7 @@ export default function Columns() {
           <h3 className="text-white text-center text-lg font-bold mb-2 h-20">
             Definitions
           </h3>
-          <ul className="pl-3 text-white text-lg">
+          <ul className="pl-3 text-white text-lg nudge-left">
             <li className="list-item">
               <strong>Break down</strong> complex information, find patterns,
               and draw <strong>logical conclusions</strong>.
@@ -70,7 +70,7 @@ export default function Columns() {
           <h3 className="text-white text-center text-lg font-bold mb-2 h-20">
             Examples
           </h3>
-          <ul className="pl-3 text-white text-lg">
+          <ul className="pl-3 text-white text-lg nudge-left">
             <li className="list-item">
               Puzzles, data analysis, code review for{' '}
               <strong>sharp mornings (peak focus)</strong>.
