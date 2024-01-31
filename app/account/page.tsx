@@ -1,3 +1,4 @@
+import Calendar from '../calendar/page';
 import ManageSubscriptionButton from './ManageSubscriptionButton';
 import {
   getSession,
@@ -158,6 +159,7 @@ export default async function Account() {
           </div>
         </Card>
       </div>
+      <Calendar />
     </section>
   );
 }
