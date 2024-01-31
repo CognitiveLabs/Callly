@@ -45,7 +45,7 @@ export default function Columns() {
             </li>
             <li className="list-item">
               Use your resources to the <strong>best of their ability</strong>,
-              even if they weren't designed for that purpose.
+              even if they weren't designed for it.
             </li>
             <li className="list-item">
               <strong>
