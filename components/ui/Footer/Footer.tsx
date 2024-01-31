@@ -97,11 +97,11 @@ export default function Footer() {
           <span className="text-white">Created by</span>
           <a
             href="https://twitter.com/Cognitive__Labs"
-            aria-label="Vercel.com Link"
+            aria-label="Cognitive Labs Link"
           >
             <img
               src="/logo.png"
-              alt="Vercel.com Logo"
+              alt="My Calendy Logo"
               className="inline-block h-20 ml-4 text-white"
             />
           </a>

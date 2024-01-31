@@ -270,7 +270,7 @@ function LogoCloud() {
             <img
               src="/nextjs.svg"
               alt="Next.js Logo"
-              className="h-12 text-white"
+              className="h-5 text-white"
             />
           </a>
         </div>
@@ -288,7 +288,7 @@ function LogoCloud() {
             <img
               src="/stripe.svg"
               alt="stripe.com Logo"
-              className="h-12 text-white"
+              className="h-10 text-white"
             />
           </a>
         </div>
@@ -306,7 +306,7 @@ function LogoCloud() {
             <img
               src="/github.svg"
               alt="github.com Logo"
-              className="h-8 text-white"
+              className="h-7 text-white"
             />
           </a>
         </div>
