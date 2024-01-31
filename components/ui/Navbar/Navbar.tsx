@@ -1,10 +1,8 @@
-import Link from 'next/link';
-import { createServerSupabaseClient } from '@/app/supabase-server';
-
-import Logo from '@/components/icons/Logo';
-import SignOutButton from './SignOutButton';
-
 import s from './Navbar.module.css';
+import SignOutButton from './SignOutButton';
+import { createServerSupabaseClient } from '@/app/supabase-server';
+import Logo from '@/components/icons/Logo';
+import Link from 'next/link';
 
 export default async function Navbar() {
   const supabase = createServerSupabaseClient();
@@ -24,7 +22,7 @@ export default async function Navbar() {
               <Logo />
             </Link>
             <nav className="hidden ml-6 space-x-2 lg:block">
-              <Link href="/" className={s.link}>
+              <Link href="/pricing" className={s.link}>
                 Pricing
               </Link>
               {user && (
