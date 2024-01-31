@@ -21,7 +21,7 @@ export default function Columns() {
       </div>
       {/* Column 2: Definitions */}
       <div className="column">
-        <div className="bg-green-500 rounded-md rounded-bl-md p-4 mb-4">
+        <div className="bg-green-500 rounded-md rounded-bl-md pt-4 pb-4 pl-1 pr-1 mb-4">
           <h3 className="text-white text-center text-lg font-bold mb-2 h-20">
             Definitions
           </h3>
@@ -45,7 +45,7 @@ export default function Columns() {
             </li>
             <li className="list-item">
               Use your resources to the <strong>best of their ability</strong>,
-              even if they weren't designed for it.
+              even if they weren't designed for that purpose.
             </li>
             <li className="list-item">
               <strong>
@@ -66,7 +66,7 @@ export default function Columns() {
       </div>
       {/* Column 3: Examples */}
       <div className="column">
-        <div className="bg-orange-500 rounded-md rounded-bl-md p-4 mb-4">
+        <div className="bg-orange-500 rounded-md rounded-bl-md pt-4 pb-4 pl-1 pr-1 mb-4">
           <h3 className="text-white text-center text-lg font-bold mb-2 h-20">
             Examples
           </h3>
