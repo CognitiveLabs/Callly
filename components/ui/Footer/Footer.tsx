@@ -14,7 +14,7 @@ export default function Footer() {
             <span className="mr-2 border rounded-full border-zinc-700">
               <Logo />
             </span>
-            <span>Cognitive Labs</span>
+            <span>My Calendy</span>
           </Link>
         </div>
         <div className="col-span-1 lg:col-span-2">
@@ -96,13 +96,13 @@ export default function Footer() {
         <div className="flex items-center">
           <span className="text-white">Created by</span>
           <a
-            href="https://twitter.com/Cognitive__Labs"
+            href="https://github.com/CognitiveLabs"
             aria-label="Cognitive Labs Link"
           >
             <img
-              src="/logo.png"
+              src="/cognitivelabs.png"
               alt="My Calendy Logo"
-              className="inline-block h-20 ml-4 text-white"
+              className="inline-block h-10 ml-4 text-white"
             />
           </a>
         </div>
