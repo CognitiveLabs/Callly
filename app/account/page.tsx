@@ -12,6 +12,7 @@ import { cookies } from 'next/headers';
 import Link from 'next/link';
 import { redirect } from 'next/navigation';
 import { ReactNode } from 'react';
+import Calendar from '../calendar/page';
 
 export default async function Account() {
   const [session, userDetails, subscription] = await Promise.all([
@@ -158,6 +159,7 @@ export default async function Account() {
           </div>
         </Card>
       </div>
+      <Calendar />
     </section>
   );
 }
