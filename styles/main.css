@@ -166,3 +166,21 @@ a {
   font-family: 'Signika', sans-serif;
   color: #ff914d;
 }
+
+@media (max-width: 640px) {
+  .calendar-container {
+    padding: 0; /* Adjust padding or margins as needed for mobile layout */
+  }
+
+  .grid-cols-10 {
+    grid-template-columns: 1fr; /* Change the number of columns for smaller screens */
+  }
+
+  .col-span-8 {
+    grid-column: span 1; /* Adjust the span for smaller screens */
+  }
+
+  .ml-8 {
+    margin-left: 0; /* Adjust left margin for smaller screens */
+  }
+}
