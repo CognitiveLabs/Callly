@@ -32,7 +32,7 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    site: '@vercel',
+    site: '@MyCalendy',
     title: meta.title,
     description: meta.description,
     cardImage: meta.cardImage
