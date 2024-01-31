@@ -83,16 +83,16 @@ export default function Footer() {
       </div>
       <div className="flex flex-col items-center justify-between py-12 space-y-4 md:flex-row bg-zinc-900">
         <div>
-          <span>&copy; {new Date().getFullYear()} Cognitive Labs</span>
+          <span>&copy; {new Date().getFullYear()} My Calendy</span>
         </div>
         <div className="flex items-center">
-          <span className="text-white">Crafted by</span>
+          <span className="text-white">Created by</span>
           <a
             href="https://twitter.com/Cognitive__Labs"
             aria-label="Vercel.com Link"
           >
             <img
-              src="/logo4.png"
+              src="/logo.png"
               alt="Vercel.com Logo"
               className="inline-block h-20 ml-4 text-white"
             />

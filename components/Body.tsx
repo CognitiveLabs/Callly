@@ -9,6 +9,7 @@ export default function Body() {
         <p className="text-4xl signika-header font-extrabold sm:text-center sm:text-6xl">
           My Calendy
         </p>
+        <br />
         <p className="text-4xl signika-title font-extrabold sm:text-center sm:text-6xl pb-10">
           the Cognitive Calendar
         </p>

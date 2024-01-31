@@ -138,6 +138,9 @@ a {
     font-size: 0.7rem;
     margin-right: 1rem;
   }
+  .nudge-left {
+    margin-left: -10px; /* Adjust as needed */
+  }
 }
 
 .draggable {
