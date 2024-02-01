@@ -25,9 +25,9 @@ export default function Body() {
           cognitive <b>abilities</b>, it aligns your tasks <b>accordingly</b>.
           Need <b>analytical thinking</b>? My Calendy schedules that for when
           your brain is <b>sharpest</b>.<b> Creative writing</b>? It plans that
-          for when your <b>imagination</b> is soaring. It's like having a
-          personal productivity coach whispering in your ear, guiding you
-          towards
+          for when your <b>imagination</b> is <b> soaring</b>. It's like having
+          a<b> personal productivity coach</b> whispering in your ear, guiding
+          you towards
           <b> peak performance</b> hour by hour.
         </p>
       </main>
