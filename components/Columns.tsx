@@ -34,8 +34,8 @@ export default function Columns() {
               and draw <strong>logical conclusions</strong>.
             </li>
             <li className="list-item">
-              <strong>Process and interpret</strong> information,{' '}
-              <strong>focusing on details</strong> and{' '}
+              <strong>Process</strong> and <strong>interpret</strong>{' '}
+              information, <strong>focusing on details</strong> and{' '}
               <strong>recognizing patterns</strong>.
             </li>
             <li className="list-item">
@@ -51,13 +51,12 @@ export default function Columns() {
               even if they weren't designed for that purpose.
             </li>
             <li className="list-item">
-              <strong>
-                Efficiently organize and manage tasks, resources, and people
-              </strong>
-              .
+              <strong>Efficiently organize</strong> and <b>manage</b> tasks,
+              resources, and people .
             </li>
             <li className="list-item">
-              Apply <strong>specialized knowledge and skills</strong> to solve{' '}
+              Apply <strong>specialized knowledge</strong> and{' '}
+              <strong>skills</strong> to solve{' '}
               <strong>practical problems</strong>.
             </li>
             <li className="list-item">
@@ -70,7 +69,7 @@ export default function Columns() {
       {/* Column 3: Examples */}
       <div className="column">
         <div className="bg-orange-500 rounded-md rounded-bl-md pt-4 pb-4 pl-1 pr-1 ">
-          <h3 className="text-white text-center text-lg font-bold mb-1 h-20">
+          <h3 className="text-white text-center text-lg font-bold mb-2 h-20">
             Examples
           </h3>
           <ul className="pl-3 text-white text-lg nudge-left">
