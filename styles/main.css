@@ -74,6 +74,9 @@ a {
   height: 66.67%; /* Apply height for extra-large screens */
 }
 
+.page-width {
+  max-width: 65%;
+}
 .list-item {
   height: 120px; /* Default height for desktop */
 }
@@ -213,28 +216,47 @@ a {
   @apply col-span-1 md:col-span-1 bg-gray-100 py-8 px-4;
 }
 
-/* Add these styles to your CSS file or styles block */
 .source-card {
-  background-color: transparent;
-  padding: 1rem;
-  border-radius: 1.5rem; /* Adjust this value for the desired rounded edges */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Add a subtle box shadow for the glowing effect */
-  transition: box-shadow 0.3s ease-in-out; /* Add a smooth transition effect for the glow */
+  /* Pill-like shape and glow effect  */
+  background-color: #252525 !important;
+  border-radius: 50px;
+  box-shadow: 0px 0px 10px #444;
+  padding: 10px 20px;
+  margin-bottom: 10px;
+  /* Transition effect  */
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    transform: scale(1.05);
+  }
 }
 
-.source-card:hover {
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Adjust the shadow for the glowing effect on hover */
-}
-
+/* Source card link */
 .source-link {
-  color: #3182ce; /* Adjust the color as needed */
-  text-decoration: underline;
+  color: #3498db;
+  font-weight: bold;
+  text-decoration: none;
 }
 
-.source-link:hover {
-  color: #2c5282; /* Adjust the color on hover as needed */
+/* Overriding default list styles  */
+.list-none {
+  list-style: none;
 }
 
-.blog {
-  max-width: 70%;
+/* Spacing between card elements  */
+.space-y-4 {
+  margin-top: 16px;
+}
+
+/* Footer styles  */
+.w-full {
+  width: 100%;
+}
+
+.bg-blue-400 {
+  background-color: #99c5fe !important;
+}
+
+.source-author {
+  margin-top: 0.5em; /* Adjust the margin as needed */
+  display: block; /* Ensures each author is on a new line */
 }

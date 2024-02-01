@@ -4,7 +4,7 @@ import React from 'react';
 
 const BlogPost: React.FC = () => {
   return (
-    <div className="blog mx-auto my-10">
+    <div className="page-width mx-auto my-10">
       <h2 className="text-2xl signika-header font-extrabold sm:text-left mb-3">
         Exploring the Dynamics of Cognitive Abilities and Productivity Over Time
       </h2>

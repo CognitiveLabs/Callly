@@ -27,11 +27,6 @@ export default async function Navbar() {
                   Account
                 </Link>
               )}
-              {user && (
-                <Link href="/functions" className={s.link}>
-                  Functions
-                </Link>
-              )}
             </nav>
           </div>
           <div className="flex justify-end flex-1 space-x-8">
