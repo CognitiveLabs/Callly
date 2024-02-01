@@ -69,8 +69,8 @@ export default function Columns() {
       </div>
       {/* Column 3: Examples */}
       <div className="column">
-        <div className="bg-orange-500 rounded-md rounded-bl-md pt-4 pb-4 pl-1 pr-1 mb-4">
-          <h3 className="text-white text-center text-lg font-bold mb-2 h-20">
+        <div className="bg-orange-500 rounded-md rounded-bl-md pt-4 pb-4 pl-1 pr-1 ">
+          <h3 className="text-white text-center text-lg font-bold mb-1 h-20">
             Examples
           </h3>
           <ul className="pl-3 text-white text-lg nudge-left">

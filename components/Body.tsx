@@ -15,8 +15,9 @@ export default function Body() {
         </p>
 
         <p className="text-1.5xl !leading-tight mx-auto max-w-xl text-center">
-          My Calendy is designed to organize your tasks and activities based on
-          your cognitive abilities, enhancing your efficiency and productivity.
+          My Calendy is designed around <b>you</b> to organize your tasks and
+          activities based on your <b>cognitive abilities</b>, enhancing your{' '}
+          <b>efficiency</b> and <b>productivity</b>.
         </p>
         <p className="text-1.5xl !leading-tight mx-auto max-w-xl text-center pt-10">
           My Calendy doesn't just tell you <b>when</b> to do something, it tells
