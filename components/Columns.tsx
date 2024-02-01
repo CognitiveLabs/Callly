@@ -3,7 +3,10 @@ export default function Columns() {
     <div className="flex flex-wrap justify-center pt-10">
       {/* Column 1: Cognitive Functions */}
       <div className=" blue-column">
-        <div className="bg-blue-500 rounded-md rounded-bl-md p-4 mb-4">
+        <div
+          style={{ backgroundColor: '#38b6ff' }}
+          className=" rounded-md rounded-bl-md p-4 mb-4"
+        >
           <h3 className="text-white text-left text-lg font-bold mb-2 h-20 mr-3 nudge-left">
             Cognitive Abilities
           </h3>
