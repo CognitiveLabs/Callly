@@ -7,7 +7,7 @@ export default function Columns() {
           style={{ backgroundColor: '#38b6ff' }}
           className=" rounded-md rounded-bl-md p-4 mb-4"
         >
-          <h3 className="text-white text-left text-lg font-bold mb-2 h-20 mr-3 nudge-left">
+          <h3 className="text-white text-left text-lg font-bold mb-2 h-20 mr-3 nudge">
             Cognitive Abilities
           </h3>
           <ul className="text-left text-white text-lg mr-5 nudge-left">

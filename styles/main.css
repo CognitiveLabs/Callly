@@ -142,6 +142,9 @@ a {
   .nudge-left {
     margin-left: -10px; /* Adjust as needed */
   }
+  .nudge {
+    margin-left: -12px; /* Adjust as needed */
+  }
 }
 
 .draggable {
