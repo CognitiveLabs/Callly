@@ -14,12 +14,12 @@ export default function Body() {
           the Cognitive Calendar
         </p>
 
-        <p className="text-1.5xl !leading-tight mx-auto max-w-xl text-center mobile-body">
+        <p className="text-1.5xl signika !leading-tight mx-auto max-w-xl text-center mobile-body">
           My Calendy is designed around <b>you</b> to organize your tasks and
           activities based on your <b>cognitive abilities</b>, enhancing your{' '}
           <b>efficiency</b> and <b>productivity</b>.
         </p>
-        <p className="text-1.5xl !leading-tight mx-auto max-w-xl text-center pt-10 mobile-body">
+        <p className="text-1.5xl signika !leading-tight mx-auto max-w-xl text-center pt-10 mobile-body">
           My Calendy doesn't just tell you <b>when</b> to do something, it tells
           you <b>what</b> to do <b>when</b>. By understanding your fluctuating
           cognitive <b>abilities</b>, it aligns your tasks <b>accordingly</b>.
