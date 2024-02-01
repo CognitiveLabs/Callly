@@ -2,21 +2,30 @@ export default function Sources() {
   return (
     <div className="flex flex-col gap-10 items-center">
       <div className="mb-4 max-w-lg mx-auto">
-        <h3 className="font-bold text-sm mb-2 text-center">Sources:</h3>
-        <ul className="list-disc pl-4 ">
-          <li>
+        <h3 className="text-4xl signika-header font-extrabold sm:text-center sm:text-6xl">
+          Sources:
+        </h3>
+        <br />
+        <p className="text-2xl signika-title font-extrabold sm:text-center">
+          Insights into our insights
+        </p>
+        <br />
+        <ul className="list-disc pl-4 space-y-4">
+          <li className="source-card">
             <a
               href="https://peerj.com/preprints/27576/"
               target="_blank"
               rel="noreferrer"
+              className="source-link"
             >
               Within-person structures of daily cognitive performance cannot be
               inferred from between-person structures of cognitive abilities
-            </a>{' '}
+            </a>
             by Florian Schmiedek​, Martin Lövdén, Timo von Oertzen, Ulman
             Lindenberger. Center for Lifespan Development (Published: Mar 11,
             2019)
           </li>
+
           <li>
             <a
               href="https://deliverypdf.ssrn.com/delivery.php?ID=299118127070014114103115065109116107071081020021005061018044043042127038073116007007013073086021061078024094118000115065025118070014074067026095107083122106071123092069026099118086&EXT=pdf&INDEX=TRUE"
