@@ -1,7 +1,5 @@
 'use client';
 
-import EnergyForm from '../sliders/EnergyFinal';
-import MorningForm from '../sliders/MorningFinal';
 import { EventSourceInput } from '@fullcalendar/core/index.js';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin, {
@@ -21,7 +19,7 @@ interface Event {
   id: number;
 }
 
-export default function Calendar() {
+export default function CalendarComponent() {
   const [morningValue, setMorningValue] = useState<number>(50);
   const [coffeeValue, setCoffeeValue] = useState<number>(50);
   const [events, setEvents] = useState([
@@ -141,8 +139,6 @@ export default function Calendar() {
         <nav className="flex justify-between mb-12 border-b border-violet-100 p-4">
           <h1 className="font-bold text-2xl text-gray-700">Calendar</h1>
         </nav>
-        <MorningForm />
-        <EnergyForm />
 
         <main className="flex min-h-screen flex-col items-center justify-between pl-24">
           <div className="grid grid-cols-10">

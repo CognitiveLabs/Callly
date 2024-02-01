@@ -12,7 +12,8 @@ import { cookies } from 'next/headers';
 import Link from 'next/link';
 import { redirect } from 'next/navigation';
 import { ReactNode } from 'react';
-import Calendar from '../calendar/page';
+import EnergyForm from '../sliders/EnergyFinal';
+import MorningForm from '../sliders/MorningFinal';
 
 export default async function Account() {
   const [session, userDetails, subscription] = await Promise.all([
@@ -159,7 +160,11 @@ export default async function Account() {
           </div>
         </Card>
       </div>
-      <Calendar />
+      <nav className="flex justify-between mb-12 border-b border-violet-100 p-4">
+        <h1 className="font-bold text-2xl text-gray-700">Calendar</h1>
+      </nav>
+      <MorningForm />
+      <EnergyForm />
     </section>
   );
 }
