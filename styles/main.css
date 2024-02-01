@@ -191,3 +191,15 @@ a {
     margin-left: 0; /* Adjust left margin for smaller screens */
   }
 }
+
+.blog-page {
+  @apply container mx-auto px-4;
+}
+
+.blog-posts {
+  @apply grid grid-cols-1 md:grid-cols-2 gap-4 pt-8;
+}
+
+.sidebar {
+  @apply col-span-1 md:col-span-1 bg-gray-100 py-8 px-4;
+}
