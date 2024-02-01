@@ -18,8 +18,6 @@ export default function Blog() {
         Our first blog post
       </p>
       <BlogPost />
-
-      <h3 className="text-xl font-bold mb-4">Explore the Blog</h3>
     </div>
   );
 }

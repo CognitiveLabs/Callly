@@ -12,7 +12,7 @@ const BlogPost: React.FC = () => {
       {/* Introduction */}
       <p className="text-lg mb-6">
         Welcome to our journey into the world of cognitive research and
-        scheduling efficiency. In this blog post, we'll unravel the connections
+        scheduling efficiency. In this blog post, we'll discuss connections
         between cognitive abilities, time of day, and individual productivity,
         drawing insights from three key studies.
       </p>
@@ -22,11 +22,11 @@ const BlogPost: React.FC = () => {
         The Complexity of Individual Cognitive Structures
       </h2>
       <p className=" mb-6">
-        Our journey begins with a groundbreaking study by Florian Schmiedek and
-        his team at DIPF | Leibniz Institute for Research and Information in
-        Education. Over six months, they explored the cognitive abilities of 101
-        young adults, challenging the consensus that human cognitive abilities
-        are hierarchically organized.
+        Our discussion begins with a study by Florian Schmiedek and his team at
+        DIPF | Leibniz Institute for Research and Information in Education. Over
+        six months, they explored the cognitive abilities of 101 young adults,
+        challenging the consensus that human cognitive abilities are
+        hierarchically organized.
       </p>
       <p className=" mb-6">
         Working memory emerges as a key contributor to both between- and
@@ -75,19 +75,18 @@ const BlogPost: React.FC = () => {
         Conclusion
       </h2>
       <p className="mb-6">
-        As we navigate through these studies, the intricate connections between
-        cognitive abilities, time of day, and productivity become evident. These
-        findings encourage a nuanced approach to understanding individual
-        differences and optimizing performance within the constraints of time.
-        My Calendy, the Cognitive Calendar, strives to incorporate these
-        insights, guiding users toward peak cognitive performance by aligning
-        tasks with their unique cognitive structures and the optimal times of
-        day.
+        As we navigate through these studies, the connections between cognitive
+        abilities, time of day, and productivity become evident. These findings
+        encourage a nuanced approach to understanding individual differences and
+        optimizing performance within the constraints of time. My Calendy, the
+        Cognitive Calendar, strives to incorporate these insights, guiding users
+        toward peak cognitive performance by aligning tasks with their unique
+        cognitive structures and the optimal times of day.
       </p>
       <p>
         In the realm of cognitive optimization, the journey continues, with each
-        study contributing to the rich tapestry of knowledge that shapes how we
-        perceive and harness our cognitive potential.
+        study contributing to the knowledge that shapes how we perceive and
+        harness our cognitive potential.
       </p>
     </div>
   );
