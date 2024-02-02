@@ -14,6 +14,7 @@ import { redirect } from 'next/navigation';
 import { ReactNode } from 'react';
 import EnergyForm from '../sliders/EnergyFinal';
 import MorningForm from '../sliders/MorningFinal';
+import { google } from '@googleapis/calendar';
 
 export default async function Account() {
   const [session, userDetails, subscription] = await Promise.all([
@@ -64,6 +65,22 @@ export default async function Account() {
     }
     revalidatePath('/account');
   };
+
+  const supabaseClient = createServerActionClient<Database>({ cookies });
+  const session = await supabaseClient.auth.session();
+  const accessToken = session?.user?.accessToken;
+
+  // Fetch events using server-side Google Calendar API
+  const calendar = google.calendar({
+    version: 'v3',
+    auth: new google.auth.OAuth2(client_id, client_secret, accessToken)
+  });
+  const events = await calendar.events.list({
+    calendarId: 'primary',
+    timeMin: new Date().toISOString(),
+    singleEvents: true,
+    orderBy: 'startTime'
+  });
 
   return (
     <section className="mb-32 bg-black">
@@ -160,6 +177,15 @@ export default async function Account() {
       <nav className="flex justify-between mb-12 border-b border-violet-100 p-4">
         <h1 className="font-bold text-2xl text-gray-700">Calendar</h1>
       </nav>
+      <Calendar
+        events={events.data.items.map((event) => ({
+          id: event.id,
+          start: event.start.dateTime || event.start.date,
+          end: event.end.dateTime || event.end.date,
+          title: event.summary
+        }))}
+        // ... other calendar props
+      />
       <MorningForm />
       <EnergyForm />
     </section>
