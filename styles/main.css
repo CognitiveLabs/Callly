@@ -8,8 +8,14 @@
   box-sizing: inherit;
 }
 
+/* Define a custom CSS class for the specific color */
+.ring-custom-blue {
+  --ring-color: #38b6ff;
+}
+
+/* Apply the custom class to focused elements */
 *:focus {
-  @apply outline-none ring-2 ring-pink-500 ring-opacity-50;
+  @apply outline-none ring-2 ring-custom-blue ring-opacity-50;
 }
 
 html {
@@ -232,7 +238,7 @@ a {
 
 /* Source card link */
 .source-link {
-  color: #3498db;
+  color: rgb(52, 152, 219);
   font-weight: bold;
   text-decoration: none;
 }
