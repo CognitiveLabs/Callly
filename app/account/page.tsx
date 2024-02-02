@@ -14,7 +14,6 @@ import { redirect } from 'next/navigation';
 import { ReactNode } from 'react';
 import EnergyForm from '../sliders/EnergyFinal';
 import MorningForm from '../sliders/MorningFinal';
-import { google } from 'googleapis';
 
 export default async function Account() {
   const [session, userDetails, subscription] = await Promise.all([
@@ -65,32 +64,6 @@ export default async function Account() {
     }
     revalidatePath('/account');
   };
-
-  async function createCalendarEvent(eventData: any) {
-    const supabase = createServerActionClient<Database>({ cookies });
-    const session = await getSession();
-
-    // Use optional chaining to safely access potentially null properties
-    const token = await session?.user?.provider_token?.google?.access_token;
-
-    if (!token) {
-      // Handle the case where there's no token (e.g., user not signed in)
-      return; // Or display an error message
-    }
-
-    try {
-      const calendar = google.calendar({ version: 'v3', auth: token });
-      const event = await calendar.events.insert({
-        calendarId: 'primary', // Insert into user's primary calendar
-        ...eventData // Event details
-      });
-      console.log('Event created:', event.data);
-      // Handle success (e.g., display a success message)
-    } catch (error) {
-      console.error('Error creating event:', error);
-      // Handle error (e.g., display an error message)
-    }
-  }
 
   return (
     <section className="mb-32 bg-black">
