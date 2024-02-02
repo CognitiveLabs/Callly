@@ -21,3 +21,8 @@
 .ring-custom-blue {
   --ring-color: #38b6ff;
 }
+
+.signika {
+  font-family: 'Signika', sans-serif;
+  color: #38b6ff;
+}

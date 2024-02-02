@@ -21,7 +21,7 @@ export default async function Navbar() {
             <Link href="/" className={s.logo} aria-label="Logo">
               <Logo />
             </Link>
-            <nav className="sm:hidden ml-6 space-x-2 lg:block">
+            <nav className="sm:hidden ml-6 signika space-x-2 lg:block">
               {user && (
                 <Link href="/account" className={s.link}>
                   Account
@@ -29,7 +29,7 @@ export default async function Navbar() {
               )}
             </nav>
           </div>
-          <div className="flex justify-end flex-1 space-x-8">
+          <div className="flex justify-end signika flex-1 space-x-8">
             {user ? (
               <SignOutButton />
             ) : (
