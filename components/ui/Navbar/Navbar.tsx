@@ -27,6 +27,11 @@ export default async function Navbar() {
                   Account
                 </Link>
               )}
+              {user && (
+                <Link href="/googlecalendar" className={s.link}>
+                  Google
+                </Link>
+              )}
             </nav>
           </div>
           <div className="flex justify-end signika flex-1 space-x-8">
