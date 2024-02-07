@@ -19,7 +19,7 @@ interface Event {
   id: number;
 }
 
-export default function CalendarComponent() {
+export default function Calendar() {
   const [morningValue, setMorningValue] = useState<number>(50);
   const [coffeeValue, setCoffeeValue] = useState<number>(50);
   const [events, setEvents] = useState([

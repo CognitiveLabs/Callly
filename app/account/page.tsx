@@ -1,3 +1,6 @@
+import Calendar from '../calendar/page';
+import EnergyForm from '../sliders/EnergyFinal';
+import MorningForm from '../sliders/MorningFinal';
 import ManageSubscriptionButton from './ManageSubscriptionButton';
 import {
   getSession,
@@ -12,8 +15,6 @@ import { cookies } from 'next/headers';
 import Link from 'next/link';
 import { redirect } from 'next/navigation';
 import { ReactNode } from 'react';
-import EnergyForm from '../sliders/EnergyFinal';
-import MorningForm from '../sliders/MorningFinal';
 
 export default async function Account() {
   const [session, userDetails, subscription] = await Promise.all([
@@ -162,6 +163,7 @@ export default async function Account() {
       </nav>
       <MorningForm />
       <EnergyForm />
+      <Calendar />
     </section>
   );
 }
