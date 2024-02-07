@@ -52,7 +52,7 @@ export default function Calendar() {
     title: '',
     start: '',
     allDay: false,
-    id: 0
+    id: ''
   });
 
   const handleMorningChange = (value: number) => {
