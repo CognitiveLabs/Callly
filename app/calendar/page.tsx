@@ -14,16 +14,26 @@ import { Fragment, useEffect, useState } from 'react';
 
 interface Event {
   title: string;
+  description?: string; // Add description field
+  location?: string; // Add location field
   start: Date | string;
+  end?: Date | string; // You might want to make end field optional
   allDay: boolean;
-  id: number;
+  id: string; // Make id string type
 }
 
 export default function Calendar() {
   const [morningValue, setMorningValue] = useState<number>(50);
   const [coffeeValue, setCoffeeValue] = useState<number>(50);
   const [events, setEvents] = useState([
-    { title: 'event 1', id: '1' },
+    {
+      title: 'event 1',
+      description: 'Description for event 1',
+      location: 'Location for event 1',
+      start: '2024-02-07T10:00:00',
+      end: '2024-02-07T12:00:00',
+      id: '1'
+    },
     { title: 'event 2', id: '2' },
     { title: 'event 3', id: '3' },
     { title: 'event 4', id: '4' },
@@ -140,9 +150,12 @@ export default function Calendar() {
           <h1 className="font-bold text-2xl text-gray-700">Calendar</h1>
         </nav>
 
-        <main className="flex min-h-screen flex-col items-center justify-between pl-24">
-          <div className="grid grid-cols-10">
-            <div className="col-span-8">
+        <main className="flex min-h-screen flex-col items-center ">
+          <div>
+            <div
+              className="col-span-8"
+              style={{ width: '90%', height: '90%', margin: 'auto' }}
+            >
               <FullCalendar
                 plugins={[dayGridPlugin, interactionPlugin, timeGridPlugin]}
                 headerToolbar={{
@@ -159,24 +172,55 @@ export default function Calendar() {
                 dateClick={handleDateClick}
                 drop={(data) => addEvent(data)}
                 eventClick={(data) => handleDeleteModal(data)}
+                contentHeight="auto"
               />
             </div>
-            <div
-              id="draggable-el"
-              className="ml-8 w-full border-2 p-2 rounded-md mt-16  draggable"
-            >
-              <h1 className="font-bold text-lg text-center">Drag Event</h1>
-              <div className="event-container">
-                {events.map((event) => (
-                  <div
-                    className="fc-event border-2 p-1 m-2 w-full rounded-md ml-auto text-center bg-white draggabletext"
-                    title={event.title}
-                    key={event.id}
-                  >
-                    {event.title}
+          </div>
+          <div
+            id="draggable-el"
+            className="border-2 p-2 rounded-md mt-8 draggable"
+            style={{ width: '500px' }} // Adjust the width as needed
+          >
+            <h1 className="font-bold text-lg text-center">Drag Event</h1>
+            <div className="event-container">
+              {events.map((event) => (
+                <div
+                  className="fc-event border-2 p-1 m-2 rounded-md ml-auto text-center bg-white draggabletext"
+                  title={event.title}
+                  key={event.id}
+                >
+                  <div className="font-bold">{event.title}</div>
+                  <div>
+                    <input
+                      type="text"
+                      value={event.name} // Use event.name for the name field
+                      onChange={(e) =>
+                        handleEventChange(event.id, 'name', e.target.value)
+                      } // Handle change for the name field
+                      placeholder="Name"
+                    />
                   </div>
-                ))}
-              </div>
+                  <div>
+                    <input
+                      type="text"
+                      value={event.project} // Use event.project for the project field
+                      onChange={(e) =>
+                        handleEventChange(event.id, 'project', e.target.value)
+                      } // Handle change for the project field
+                      placeholder="Project"
+                    />
+                  </div>
+                  <div>
+                    <input
+                      type="datetime-local"
+                      value={event.dueTime} // Use event.dueTime for the due time field
+                      onChange={(e) =>
+                        handleEventChange(event.id, 'dueTime', e.target.value)
+                      } // Handle change for the due time field
+                    />
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
 
