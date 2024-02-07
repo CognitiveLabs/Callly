@@ -19,7 +19,7 @@ interface Event {
   start: Date | string;
   end?: Date | string; // You might want to make end field optional
   allDay: boolean;
-  id: string; // Make id string type
+  id: number; // Make id string type
 }
 
 export default function Calendar() {
@@ -52,7 +52,7 @@ export default function Calendar() {
     title: '',
     start: '',
     allDay: false,
-    id: ''
+    id: 0
   });
 
   const handleMorningChange = (value: number) => {
@@ -151,7 +151,7 @@ export default function Calendar() {
         </nav>
 
         <main className="flex min-h-screen flex-col items-center ">
-          <div>
+          <div className="grid grid-cols-10">
             <div
               className="col-span-8"
               style={{ width: '90%', height: '90%', margin: 'auto' }}
@@ -178,14 +178,13 @@ export default function Calendar() {
           </div>
           <div
             id="draggable-el"
-            className="border-2 p-2 rounded-md mt-8 draggable"
-            style={{ width: '500px' }} // Adjust the width as needed
+            className="ml-8 w-96 border-2 p-2 rounded-md mt-8 draggable"
           >
             <h1 className="font-bold text-lg text-center">Drag Event</h1>
             <div className="event-container">
               {events.map((event) => (
                 <div
-                  className="fc-event border-2 p-1 m-2 rounded-md ml-auto text-center bg-white draggabletext"
+                  className="fc-event border-2 p-1 m-2 w-full rounded-md ml-auto text-center bg-white draggabletext"
                   title={event.title}
                   key={event.id}
                 >
