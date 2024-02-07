@@ -193,31 +193,28 @@ export default function Calendar() {
                   <div>
                     <input
                       type="text"
-                      value={event.name} // Use event.name for the name field
+                      value={newEvent.description}
                       onChange={(e) =>
-                        handleEventChange(event.id, 'name', e.target.value)
-                      } // Handle change for the name field
-                      placeholder="Name"
+                        setNewEvent({
+                          ...newEvent,
+                          description: e.target.value
+                        })
+                      }
+                      placeholder="Description"
                     />
                   </div>
                   <div>
                     <input
                       type="text"
-                      value={event.project} // Use event.project for the project field
+                      value={newEvent.location}
                       onChange={(e) =>
-                        handleEventChange(event.id, 'project', e.target.value)
-                      } // Handle change for the project field
-                      placeholder="Project"
+                        setNewEvent({ ...newEvent, location: e.target.value })
+                      }
+                      placeholder="Location"
                     />
                   </div>
                   <div>
-                    <input
-                      type="datetime-local"
-                      value={event.dueTime} // Use event.dueTime for the due time field
-                      onChange={(e) =>
-                        handleEventChange(event.id, 'dueTime', e.target.value)
-                      } // Handle change for the due time field
-                    />
+                    {event.start} - {event.end}
                   </div>
                 </div>
               ))}
