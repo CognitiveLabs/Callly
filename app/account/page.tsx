@@ -1,6 +1,7 @@
 import Calendar from '../calendar/page';
 import EnergyForm from '../sliders/EnergyFinal';
 import MorningForm from '../sliders/MorningFinal';
+import TestSlider from '../sliders/TestSleep';
 import ManageSubscriptionButton from './ManageSubscriptionButton';
 import {
   getSession,
@@ -67,104 +68,107 @@ export default async function Account() {
   };
 
   return (
-    <section className="mb-32 bg-black signika">
-      <div className="max-w-6xl px-4 py-8 mx-auto sm:px-6 sm:pt-24 lg:px-8">
-        <div className="sm:align-center sm:flex sm:flex-col">
-          <h1 className="text-4xl signika-header font-extrabold text-white sm:text-center sm:text-6xl">
-            Your Account
-          </h1>
+    <div>
+      <section className="mb-32 bg-black signika">
+        <div className="max-w-6xl px-4 py-8 mx-auto sm:px-6 sm:pt-24 lg:px-8">
+          <div className="sm:align-center sm:flex sm:flex-col">
+            <h1 className="text-4xl signika-header font-extrabold text-white sm:text-center sm:text-6xl">
+              Your Account
+            </h1>
+          </div>
         </div>
-      </div>
-      <div className="p-4">
-        <Card
-          title="Your Plan"
-          description={
-            subscription
-              ? `You are currently on the ${subscription?.prices?.products?.name} plan.`
-              : 'You are not currently subscribed to any plan.'
-          }
-          footer={<ManageSubscriptionButton session={session} />}
-        >
-          <div className="mt-8 mb-4 text-xl font-semibold">
-            {subscription ? (
-              `${subscriptionPrice}/${subscription?.prices?.interval}`
-            ) : (
-              <Link href="/">Choose your plan</Link>
-            )}
-          </div>
-        </Card>
-        <Card
-          title="Your Name"
-          description="Enter your name or a display name you are comfortable with."
-          footer={
-            <div className="flex flex-col items-start justify-between sm:flex-row sm:items-center">
-              <p className="pb-4 sm:pb-0">64 characters maximum</p>
-              <Button
-                variant="slim"
-                type="submit"
-                form="nameForm"
-                disabled={true}
-              >
-                {/* WARNING - In Next.js 13.4.x server actions are in alpha and should not be used in production code! */}
-                Update Name
-              </Button>
+        <div className="p-4">
+          <Card
+            title="Your Plan"
+            description={
+              subscription
+                ? `You are currently on the ${subscription?.prices?.products?.name} plan.`
+                : 'You are not currently subscribed to any plan.'
+            }
+            footer={<ManageSubscriptionButton session={session} />}
+          >
+            <div className="mt-8 mb-4 text-xl font-semibold">
+              {subscription ? (
+                `${subscriptionPrice}/${subscription?.prices?.interval}`
+              ) : (
+                <Link href="/">Choose your plan</Link>
+              )}
             </div>
-          }
-        >
-          <div className="mt-8 mb-4 text-xl font-semibold">
-            <form id="nameForm" action={updateName}>
-              <input
-                type="text"
-                name="name"
-                className="w-1/2 p-3 rounded-md bg-zinc-800"
-                defaultValue={userDetails?.full_name ?? ''}
-                placeholder="Your name"
-                maxLength={64}
-              />
-            </form>
-          </div>
-        </Card>
-        <Card
-          title="Your Email"
-          description="Please enter the email address you want to use to login."
-          footer={
-            <div className="flex flex-col items-start justify-between sm:flex-row sm:items-center">
-              <p className="pb-4 sm:pb-0">
-                We will email you to verify the change.
-              </p>
-              <Button
-                variant="slim"
-                type="submit"
-                form="emailForm"
-                disabled={true}
-              >
-                {/* WARNING - In Next.js 13.4.x server actions are in alpha and should not be used in production code! */}
-                Update Email
-              </Button>
+          </Card>
+          <Card
+            title="Your Name"
+            description="Enter your name or a display name you are comfortable with."
+            footer={
+              <div className="flex flex-col items-start justify-between sm:flex-row sm:items-center">
+                <p className="pb-4 sm:pb-0">64 characters maximum</p>
+                <Button
+                  variant="slim"
+                  type="submit"
+                  form="nameForm"
+                  disabled={true}
+                >
+                  {/* WARNING - In Next.js 13.4.x server actions are in alpha and should not be used in production code! */}
+                  Update Name
+                </Button>
+              </div>
+            }
+          >
+            <div className="mt-8 mb-4 text-xl font-semibold">
+              <form id="nameForm" action={updateName}>
+                <input
+                  type="text"
+                  name="name"
+                  className="w-1/2 p-3 rounded-md bg-zinc-800"
+                  defaultValue={userDetails?.full_name ?? ''}
+                  placeholder="Your name"
+                  maxLength={64}
+                />
+              </form>
             </div>
-          }
-        >
-          <div className="mt-8 mb-4 text-xl font-semibold">
-            <form id="emailForm" action={updateEmail}>
-              <input
-                type="text"
-                name="email"
-                className="w-1/2 p-3 rounded-md bg-zinc-800"
-                defaultValue={user ? user.email : ''}
-                placeholder="Your email"
-                maxLength={64}
-              />
-            </form>
-          </div>
-        </Card>
-      </div>
-      <nav className="flex justify-between mb-12 border-b border-violet-100 p-4">
-        <h1 className="font-bold text-2xl text-gray-700">Calendar</h1>
-      </nav>
-      <MorningForm />
-      <EnergyForm />
-      <Calendar />
-    </section>
+          </Card>
+          <Card
+            title="Your Email"
+            description="Please enter the email address you want to use to login."
+            footer={
+              <div className="flex flex-col items-start justify-between sm:flex-row sm:items-center">
+                <p className="pb-4 sm:pb-0">
+                  We will email you to verify the change.
+                </p>
+                <Button
+                  variant="slim"
+                  type="submit"
+                  form="emailForm"
+                  disabled={true}
+                >
+                  {/* WARNING - In Next.js 13.4.x server actions are in alpha and should not be used in production code! */}
+                  Update Email
+                </Button>
+              </div>
+            }
+          >
+            <div className="mt-8 mb-4 text-xl font-semibold">
+              <form id="emailForm" action={updateEmail}>
+                <input
+                  type="text"
+                  name="email"
+                  className="w-1/2 p-3 rounded-md bg-zinc-800"
+                  defaultValue={user ? user.email : ''}
+                  placeholder="Your email"
+                  maxLength={64}
+                />
+              </form>
+            </div>
+          </Card>
+        </div>
+        <nav className="flex justify-between mb-12 border-b border-violet-100 p-4">
+          <h1 className="font-bold text-2xl text-gray-700">Calendar</h1>
+        </nav>
+        <MorningForm />
+        <EnergyForm />
+        <TestSlider />
+        <Calendar />
+      </section>
+    </div>
   );
 }
 

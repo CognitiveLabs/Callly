@@ -61,7 +61,8 @@ const MorningForm: React.FC = () => {
   return (
     <div>
       <h2 className="text-center">
-        Are you more of a morning or an evening person?
+        Over the last few weeks, have you been more of a morning or evening
+        person?
       </h2>
       <br />
       <form>
@@ -250,6 +251,7 @@ const MorningSliderStyle = `
   z-index: 2;
   cursor: pointer;
 }
+
 
 `;
 
