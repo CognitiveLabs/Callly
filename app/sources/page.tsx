@@ -132,6 +132,17 @@ export default function Sources() {
             by Tamas Madl, Bernard J. Baars, and Stan Franklin (Published: April
             25, 2011)
           </li>
+          <li className="source-card">
+            <a
+              href="https://docs.iza.org/dp13657.pdf"
+              target="_blank"
+              rel="noreferrer"
+              className="source-link"
+            >
+              Time of Day, Cognitive Tasks and Efficiency Gains
+            </a>{' '}
+            by Alessio Gaggero and Denni Tommasi (Published: September 2020)
+          </li>
         </ul>
       </div>
       <div className="w-full p-[1px] bg-gradient-to-r from-transparent via-foreground/10 to-transparent my-8" />
