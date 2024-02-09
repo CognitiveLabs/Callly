@@ -1,75 +1,149 @@
 'use client';
 
-import React, { useState, ChangeEvent, useEffect } from 'react';
+import React, { useEffect } from 'react';
 
-interface SleepSliderProps {
-  sleepvalue: number;
-  onChange: (event: ChangeEvent<HTMLInputElement>) => void;
-  key: string; // Add a key property
-}
+const SleepSlider = () => {
+  let active: false | string = false;
+  let scrollerMiddle: HTMLElement | null = null;
+  let scrollerTop: HTMLElement | null = null;
 
-const SleepSlider: React.FC<SleepSliderProps> = ({
-  sleepvalue,
-  onChange,
-  key
-}) => {
-  const shouldShift = sleepvalue > -1 && sleepvalue < 101;
+  const scrollIt = (x: number) => {
+    let transform = Math.max(
+      0,
+      Math.min(x, document.querySelector('.wrapper')!.offsetWidth)
+    );
+    if (active === 'middle') {
+      document
+        .querySelector('.middle')!
+        .setAttribute('style', `width: ${transform}px`);
+      scrollerMiddle!.setAttribute('style', `left: ${transform - 25}px`);
+      if (
+        scrollerTop!.getBoundingClientRect().left >
+        scrollerMiddle!.getBoundingClientRect().left - 5
+      ) {
+        document
+          .querySelector('.top')!
+          .setAttribute('style', `width: ${transform - 5}px`);
+        scrollerTop!.setAttribute('style', `left: ${transform - 30}px`);
+      }
+    }
+    if (active === 'top') {
+      document
+        .querySelector('.top')!
+        .setAttribute('style', `width: ${transform}px`);
+      scrollerTop!.setAttribute('style', `left: ${transform - 25}px`);
+      if (
+        scrollerTop!.getBoundingClientRect().left >
+        scrollerMiddle!.getBoundingClientRect().left - 5
+      ) {
+        document
+          .querySelector('.middle')!
+          .setAttribute('style', `width: ${transform + 5}px`);
+        scrollerMiddle!.setAttribute('style', `left: ${transform - 20}px`);
+      }
+    }
+  };
 
   useEffect(() => {
-    document.documentElement.style.setProperty(
-      `--sleep-value-${key}`, // Use key to set unique CSS variable name
-      sleepvalue.toString()
-    );
-  }, [sleepvalue, key]);
+    const handleMouseDownMiddle = () => {
+      active = 'middle';
+      scrollerMiddle!.classList.add('scrolling');
+    };
 
-  return (
-    <div className="sleep-slider-container">
-      <div className="sleepcontrol">
-        <input
-          id={`track-${key}`} // Use key to generate unique IDs
-          type="range"
-          min="0"
-          max="100"
-          value={sleepvalue}
-          onChange={onChange}
-          className="sleepslider-input"
-        />
+    const handleMouseUp = () => {
+      active = false;
+      scrollerMiddle!.classList.remove('scrolling');
+      scrollerTop!.classList.remove('scrolling');
+    };
 
-        <div
-          className="sleeptooltip"
-          style={{ '--shift': shouldShift ? 1 : 0 } as React.CSSProperties}
-        ></div>
-        <div
-          className="sleepcontrol__track"
-          style={{ '--shift': shouldShift ? 1 : 0 } as React.CSSProperties}
-        ></div>
-      </div>
-      {/* <style>{SleepSliderStyle}</style> */}
-    </div>
-  );
-};
+    const handleTouchStartMiddle = () => {
+      active = 'middle';
+      scrollerMiddle!.classList.add('scrolling');
+    };
 
-const SleepForm: React.FC = () => {
-  const [sleepslidervalue1, setSleepSliderValue1] = useState<number>(50);
-  const [sleepslidervalue2, setSleepSliderValue2] = useState<number>(50);
+    const handleTouchEnd = () => {
+      active = false;
+      scrollerMiddle!.classList.remove('scrolling');
+      scrollerTop!.classList.remove('scrolling');
+    };
 
-  const handleSliderChange1 = (event: ChangeEvent<HTMLInputElement>) => {
-    const sleepvalue = parseInt(event.target.value, 10);
-    setSleepSliderValue1(sleepvalue);
-    document.documentElement.style.setProperty(
-      '--sleep-value-1', // Use unique key for first slider
-      sleepvalue.toString()
-    );
-  };
+    scrollerMiddle = document.querySelector('.scroller-middle');
+    scrollerTop = document.querySelector('.scroller-top');
 
-  const handleSliderChange2 = (event: ChangeEvent<HTMLInputElement>) => {
-    const sleepvalue = parseInt(event.target.value, 10);
-    setSleepSliderValue2(sleepvalue);
-    document.documentElement.style.setProperty(
-      '--sleep-value-2', // Use unique key for second slider
-      sleepvalue.toString()
-    );
-  };
+    if (scrollerMiddle && scrollerTop) {
+      scrollerMiddle.addEventListener('mousedown', handleMouseDownMiddle);
+      scrollerTop.addEventListener('mousedown', () => {
+        active = 'top';
+        scrollerTop!.classList.add('scrolling');
+      });
+
+      document.body.addEventListener('mouseup', handleMouseUp);
+      document.body.addEventListener('mouseleave', handleMouseUp);
+
+      scrollerMiddle.addEventListener('touchstart', handleTouchStartMiddle);
+      scrollerTop.addEventListener('touchstart', () => {
+        active = 'top';
+        scrollerTop!.classList.add('scrolling');
+      });
+
+      document.body.addEventListener('touchend', handleTouchEnd);
+      document.body.addEventListener('touchcancel', handleTouchEnd);
+    }
+
+    const handleMouseMove = (e: MouseEvent) => {
+      if (!active) return;
+      let x = e.pageX;
+      x -= document.querySelector('.wrapper')!.getBoundingClientRect().left;
+      scrollIt(x);
+    };
+
+    const handleTouchMove = (e: TouchEvent) => {
+      if (!active) return;
+      e.preventDefault();
+      let x = e.touches[0].pageX;
+      x -= document.querySelector('.wrapper')!.getBoundingClientRect().left;
+      scrollIt(x);
+    };
+
+    document.body.addEventListener('mousemove', handleMouseMove);
+    document
+      .querySelector('.wrapper')!
+      .addEventListener('touchmove', handleTouchMove);
+
+    return () => {
+      if (scrollerMiddle && scrollerTop) {
+        scrollerMiddle.removeEventListener('mousedown', handleMouseDownMiddle);
+        scrollerTop.removeEventListener('mousedown', () => {
+          active = 'top';
+          scrollerTop!.classList.add('scrolling');
+        });
+        document.body.removeEventListener('mouseup', handleMouseUp);
+        document.body.removeEventListener('mouseleave', handleMouseUp);
+        scrollerMiddle.removeEventListener(
+          'touchstart',
+          handleTouchStartMiddle
+        );
+        scrollerTop.removeEventListener('touchstart', () => {
+          active = 'top';
+          scrollerTop!.classList.add('scrolling');
+        });
+        document.body.removeEventListener('touchend', handleTouchEnd);
+        document.body.removeEventListener('touchcancel', handleTouchEnd);
+        document.body.removeEventListener('mousemove', handleMouseMove);
+        document
+          .querySelector('.wrapper')!
+          .removeEventListener('touchmove', handleTouchMove);
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    active = 'middle';
+    scrollIt(460);
+    active = 'top';
+    scrollIt(230);
+    active = false;
+  }, []);
 
   return (
     <div>
@@ -77,168 +151,207 @@ const SleepForm: React.FC = () => {
         How much sleep did you get "last night" and when?
       </h2>
       <br />
-      <form>
-        <SleepSlider
-          sleepvalue={sleepslidervalue1}
-          onChange={handleSliderChange1}
-          key="1" // Assign a unique key to the first slider
-        />
-        <SleepSlider
-          sleepvalue={sleepslidervalue2}
-          onChange={handleSliderChange2}
-          key="2" // Assign a unique key to the second slider
-        />
-        <br />
-        <br />
-        <style>{SleepSliderStyle}</style> {/* Include the styles */}
-      </form>
+      <br />
+      <div className="wrapper">
+        <div className="bottom"></div>
+        <div className="middle"></div>
+        <div className="top"></div>
+        <div className="scroller scroller-middle">
+          <div className="scroller__thumb">
+            {/* Left arrow */}
+            <div
+              style={{
+                position: 'absolute',
+                left: 5,
+                top: '50%',
+                transform: 'translateY(-50%)',
+                width: 0,
+                height: 0,
+                borderLeft: '8px solid transparent',
+                borderRight: '8px solid orange',
+                borderTop: '8px solid transparent',
+                borderBottom: '8px solid transparent',
+                cursor: 'pointer'
+              }}
+            ></div>
+            {/* Right arrow */}
+            <div
+              style={{
+                position: 'absolute',
+                right: 5,
+                top: '50%',
+                transform: 'translateY(-50%)',
+                width: 0,
+                height: 0,
+                borderLeft: '8px solid orange',
+                borderRight: '8px solid transparent',
+                borderTop: '8px solid transparent',
+                borderBottom: '8px solid transparent',
+                cursor: 'pointer'
+              }}
+            ></div>
+          </div>
+        </div>
+        <div className="scroller scroller-top">
+          <div className="scroller__thumb">
+            {/* Left arrow */}
+            <div
+              style={{
+                position: 'absolute',
+                left: 5,
+                top: '50%',
+                transform: 'translateY(-50%)',
+                width: 0,
+                height: 0,
+                borderLeft: '8px solid transparent',
+                borderRight: '8px solid orange',
+                borderTop: '8px solid transparent',
+                borderBottom: '8px solid transparent',
+                cursor: 'pointer'
+              }}
+            ></div>
+            {/* Right arrow */}
+            <div
+              style={{
+                position: 'absolute',
+                right: 5,
+                top: '50%',
+                transform: 'translateY(-50%)',
+                width: 0,
+                height: 0,
+                borderLeft: '8px solid orange',
+                borderRight: '8px solid transparent',
+                borderTop: '8px solid transparent',
+                borderBottom: '8px solid transparent',
+                cursor: 'pointer'
+              }}
+            ></div>
+          </div>
+        </div>
+      </div>
+      <style>{TestSliderStyle}</style> {/* Include the styles */}
     </div>
   );
 };
 
-const SleepSliderStyle = `
-  .sleeptooltip::before {
-    color: white;
-    content: var(--sleepLabel, "morning") " " counter(low) "%";
-    left: 0.5rem;
-  }
+const TestSliderStyle = `
 
-  .sleeptooltip::after {
-    color: white;
-    content: var(--eveningLabel, "midnight") " " counter(high) "%";
-    right: 0.5rem;
-  }
 
-  .sleepcontrol__track::before {
-    background: #64B5F6; /* Light blue */
-  }
-
-  .sleepcontrol__track::after {
-    background: #B71C1C; /* Dark red */
-  }
-
-  @font-face {
-  font-family: "Geist Sans";
-  src: url("https://assets.codepen.io/605876/GeistVF.ttf") format("truetype");
-}
-
-*,
-*:after,
-*:before {
-  box-sizing: border-box;
-}
-
-.sleep-slider-container {
-  width: 600px; /* Adjust the width as needed */
-  margin: 0 auto;
-}
-
-.sleepcontrol {
+.wrapper {
+  width: 690px;
+  height: 60px;
   position: relative;
-  display: grid;
-  place-items: center;
-  margin: 0 auto;
-}
-
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
+  left: 50%;
+  top: 50%;
+  transform: translate3d(-50%, -50%, 0);
   overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border-width: 0;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 }
 
-.sleepcontrol:focus-within,
-.sleepcontrol:hover {
-  --active: 1;
-}
-
-
-
-.sleeptooltip {
-  font-size: 1rem;
+.bottom,
+.middle,
+.top {
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-color: white;
+  background-size: cover;
+  background-position: center;
   position: absolute;
   top: 0;
   left: 0;
-  right: 0;
-  height: 50%;
-  pointer-events: none;
-  transform: translateY(calc(var(--shift, 0) * 50%));
-  transition: transform var(--speed) var(--timing);
-  z-index: 2;
-  counter-reset: low var(--sleep-value) high calc(100 - var(--sleep-value));
-}
-
-.sleeptooltip::before,
-.sleeptooltip::after {
-  --range: calc((50 - (var(--sleep-value) / 100 * 10)) * 1%);
-  font-variant: tabular-nums;
-  position: absolute;
-  top: 50%;
-  translate: 0 -50%;
-  font-family: monospace;
-}
-
-.sleepcontrol__track {
-  --sleep: hsl(
-    24 74% calc(24% + (30% * (var(--sleep-value, 0) / 100))) / 0.4
-  );
-  --evening: hsl(0 0% 100% / calc(0.1 + (0.4 * (var(--sleep-value, 0) / 100))));
-  height: calc(50% + (var(--shift) * 50%));
-  width: 100%;
-  position: absolute;
-  bottom: 0;
-  pointer-events: none;
-  transition: height var(--speed) var(--timing);
-}
-
-.sleepcontrol__track::before,
-.sleepcontrol__track::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
   border-radius: 4px;
-  transition: width var(--sleep--update);
+  pointer-events: none;
+  overflow: hidden;
+  img {
+    height: 100%;
+  }
 }
 
-.sleepcontrol__track::before {
-  left: 0;
-  width: calc(var(--sleep-value, 0) * 1% - 0.5rem);
+.bottom {
+  background: #2196f3;
+}
+.middle {
+  background: #bbdefb;
+}
+.top {
+  background: #ffffff;
 }
 
-.sleepcontrol__track::after {
-  right: 0;
-  width: calc((100 - var(--sleep-value, 0)) * 1% - 0.5rem);
+.top {
+  width: 125px;
 }
 
-.sleepcontrol__indicator {
-  height: 5%;
-  border-radius: 4px;
-  width: 4px;
+.scroller {
+  width: 50px;
+  height: 50px;
   position: absolute;
+  left: 100px;
   top: 50%;
-  background: hsl(0 0% 100% / calc((var(--active, 0) * 0.5) + 0.5));
-  left: calc(var(--sleep-value, 0) * 1%);
-  z-index: 2;
-  translate: -50% -50%;
-  transition: left var(--sleep--update), background var(--sleep--update);
-}
-
-.sleepslider-input {
-  position: relative;
-  width: 100%;
-  opacity: 0;
-  z-index: 2;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  background-color: #fff;
+  opacity: 0.9;
+  transition: opacity 0.12s ease-in-out;
+  pointer-events: auto;
   cursor: pointer;
+  box-shadow: 3.5px 0px 7px rgba(100, 100, 100, 0.2);
 }
+
+.scroller:hover {
+  opacity: 1;
+}
+
+.scrolling {
+  pointer-events: none;
+  opacity: 1;
+}
+
+.scroller__thumb {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  padding: 7px;
+}
+
+.scroller:before,
+.scroller:after {
+  content: ' ';
+  display: block;
+  width: 7px;
+  height: 9999px;
+  position: absolute;
+  left: 50%;
+  margin-left: -3.5px;
+  z-index: 30;
+  transition: 0.1s;
+  box-shadow: 3.5px 0px 7px rgba(100, 100, 100, 0.2);
+}
+.scroller:before {
+  top: 49px;
+}
+.scroller:after {
+  bottom: 49px;
+}
+
+/* If you want to cahnge the colors, make sure you change the fill in the svgs to match */
+.scroller-middle > .scroller__thumb {
+  border: 5px solid #ffccbc;
+}
+.scroller-middle:before,
+.scroller-middle:after {
+  background: #000000;
+}
+
+.scroller-top > .scroller__thumb {
+  border: 5px solid #ffab91;
+}
+.scroller-top:before,
+.scroller-top:after {
+  background: #000000;
+}
+
 
 `;
 
-export { SleepSlider, SleepSliderStyle };
-
-export default SleepForm;
+export default SleepSlider;

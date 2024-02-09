@@ -1,7 +1,7 @@
 import Calendar from '../calendar/page';
 import EnergyForm from '../sliders/EnergyFinal';
 import MorningForm from '../sliders/MorningFinal';
-import TestSlider from '../sliders/TestSleep';
+import SleepSlider from '../sliders/Sleep';
 import ManageSubscriptionButton from './ManageSubscriptionButton';
 import {
   getSession,
@@ -105,7 +105,7 @@ export default async function Account() {
                   variant="slim"
                   type="submit"
                   form="nameForm"
-                  disabled={true}
+                  disabled={false}
                 >
                   {/* WARNING - In Next.js 13.4.x server actions are in alpha and should not be used in production code! */}
                   Update Name
@@ -138,7 +138,7 @@ export default async function Account() {
                   variant="slim"
                   type="submit"
                   form="emailForm"
-                  disabled={true}
+                  disabled={false}
                 >
                   {/* WARNING - In Next.js 13.4.x server actions are in alpha and should not be used in production code! */}
                   Update Email
@@ -165,7 +165,7 @@ export default async function Account() {
         </nav>
         <MorningForm />
         <EnergyForm />
-        <TestSlider />
+        <SleepSlider />
         <Calendar />
       </section>
     </div>

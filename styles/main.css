@@ -15,7 +15,7 @@
 
 /* Apply the custom class to focused elements */
 *:focus {
-  @apply outline-none ring-2 ring-custom-blue ring-opacity-50;
+  @apply ring-custom-blue outline-none ring-2 ring-opacity-50;
 }
 
 html {
@@ -191,6 +191,10 @@ a {
   font-family: 'Signika', sans-serif;
   color: #38b6ff;
 }
+.calendar-container {
+  justify-content: center;
+  margin: 0 auto;
+}
 
 @media (max-width: 640px) {
   .calendar-container {
@@ -215,11 +219,11 @@ a {
 }
 
 .blog-posts {
-  @apply grid grid-cols-1 md:grid-cols-2 gap-4 pt-8;
+  @apply grid grid-cols-1 gap-4 pt-8 md:grid-cols-2;
 }
 
 .sidebar {
-  @apply col-span-1 md:col-span-1 bg-gray-100 py-8 px-4;
+  @apply col-span-1 bg-gray-100 px-4 py-8 md:col-span-1;
 }
 
 .source-card {
