@@ -1,5 +1,6 @@
 import 'styles/main.css';
 import Columns from './Columns';
+import How from './How';
 import Logo from './icons/Logo';
 
 export default function Body() {
@@ -32,6 +33,7 @@ export default function Body() {
         </p>
       </main>
       <Columns />
+      <How />
     </div>
   );
 }
